@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="css/register.css">
+    <script src="https://kit.fontawesome.com/df9ac6db55.js" crossorigin="anonymous"></script>
+    
+    <title>Registro</title>
+</head>
+<body>
+    <div class="content">
+        <form action="/register" method="POST" class="register-form">
+            <h1>Logo</h1>
+            <p>
+                <%- msg %>
+            </p>
+            <i class="fa-regular fa-address-card"></i>
+            <input type="text" name="firstname" class="nameput" id="" placeholder="Nome">
+            <input type="text" name="lastname" class="nameput" id="" placeholder="Sobrenome">
+                <br>
+            <i class="fa-solid fa-user"></i>
+            <input type="text" name="username" id="" placeholder="Nome de Usuario">
+                <br>
+            <i class="fa-solid fa-at"></i>
+            <input type="email" name="email" id="" placeholder="exemplo@email.com">
+                <br>
+            <i class="fa-solid fa-calendar-days"></i>
+            <input type="date" name="dat" id="">
+                <br>
+            <i class="fa-solid fa-key"></i>
+            <input type="password" name="password" id="" placeholder="Senha">
+                <br>
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" name="confirmPassword" placeholder="Confirmar Senha">
+                <br>
+            <input type="checkbox" class="checkbox-termo" name="" id="">
+            <label for="checkbox-termo">Li e Concordo com os termos e condições.</label>
+
+            <button type="submit" class="register-button">
+                <i class="fa-solid fa-right-to-bracket"></i> Entrar
+            </button>
+        </form>
+    </div>
+</body>
+</html>

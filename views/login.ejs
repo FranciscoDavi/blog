@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="Pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <script src="https://kit.fontawesome.com/df9ac6db55.js" crossorigin="anonymous"></script>
+    <title>Login</title>
+</head>
+<body>
+    <div class="content">
+        <form action="/login" method="POST" class="login-form">
+            <h1>Logo</h1>
+                <span class="msg-err" style="display: block;"><%- msg %></span>
+               
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="username" id="" placeholder="Nome de Usuario">
+                    <br>
+                <i class="fa-solid fa-key"></i>
+                <input type="password" name="password" id="" placeholder="Senha">
+                    <br>
+                <button type="submit" class="login-button">
+                    <i class="fa-solid fa-right-to-bracket"></i> Entrar
+                </button>
+                    <br>
+                    <br>
+                    
+                <a href="#">Esqueci minha senha.</a>
+                    <br>
+                <p>Não possui conta? <a href="/register">Registre-se.</a></p>
+        </form>
+    </div>
+</body>
+</html>

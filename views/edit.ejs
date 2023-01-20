@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edite</title>
+</head>
+<body>
+    <div> 
+        <% post.forEach(post => { %>
+        <form action="/edit" method="POST">
+            <input type="hidden" name="id" value="<%= post.id %>">
+            <label for="title">Titulo: </label>
+            <input type="text" name="title" id="title" value="<%= post.title %>">
+            <label for="body">Fale sobre >:) </label>
+            <textarea name="body" id="body"><%= post.body %></textarea>
+            <button type="submit">Salvar alterações</button>
+        </form>
+        <% }) %>
+    </div>
+</body>
+</html>
