@@ -8,8 +8,8 @@ class HomeController{
     }
 
     async details(req, res){
-        const {id} = req.params;
-        const post = await Post.findById(id);
+        const {slug} = req.params;
+        const post = await Post.find({slug: slug});
         
         if(post.length == 0){
             res.redirect('/');

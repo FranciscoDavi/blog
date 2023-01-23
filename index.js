@@ -12,7 +12,7 @@ app.use(session({
     secret: "keyboardcat",
     resave: false,
     saveUninitialized: true,
-    cookie: {maxAge: 300000}
+    cookie: {maxAge: 3600 * 1000}
 }));
 
 //static files

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/partials/sidebar.css">
+    <link rel="stylesheet" href="/css/view.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+
+    <title>Visualizar</title>
+</head>
+<body>
+    <%- include('../partials/sidebar.ejs') %>
+    <section>
+        <div class="main">
+            <div class="main-menu">
+                <header>
+                    <span>Inicio - Posts - Post</span>
+                    <h1>Página do post</h1>
+                </header>
+            </div>
+            <div class="main-content">
+                <% post.forEach(post => { %>
+                    <div class="post-info">
+                        <h2><%- post.title %></h2>
+                        <span>publicado em 23/01/2023</span>
+                    </div>
+                    <div class="post-body">
+                        <p>
+                            <%- post.body %>
+                        </p>
+                    </div>
+                <% });%>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

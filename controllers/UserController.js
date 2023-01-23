@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const validUser = require('../helpers/validUser');
 
 class UserController {
 
@@ -13,27 +14,12 @@ class UserController {
 
     async register(req, res){
         const {confirmPassword, ...user} = req.body;
-        
-        if(user.firstname == undefined || user.firstname == '' ||  user.firstname.length <= 3){
-            req.flash('msg', 'Nome inválido');
-            res.redirect('/register');
-        }else if(user.lastname == undefined || user.lastname == '' ||  user.firstname.length <= 3){
-            req.flash('msg', 'Sobrenome Inválido');
-            res.redirect('/register');
-        }else if(user.username == undefined || user.username== '' ||  user.username.length <= 3){
-            req.flash('msg', 'Username Inválido');
-            res.redirect('/register'); 
-        }else if(user.email == undefined || user.email== '' ||  user.email.length <= 5){
-            req.flash('msg', 'Email Inválido');
-            res.redirect('/register'); 
-        }else if(user.dat == undefined || user.dat== '' ||  user.dat.length <= 5){
-            req.flash('msg', 'Data de nascimento Inválida');
-            res.redirect('/register'); 
-        }else if(user.password == undefined || user.password== '' ||  user.password.length <= 7 || user.password != confirmPassword){
-            req.flash('msg', 'Senha Inválida ou não coincidem');
-            res.redirect('/register'); 
-        }else{
+        const err = validUser(user, confirmPassword);
 
+        if(err){
+            req.flash('msg', err[0]['err-msg']);
+            res.redirect('/register');
+        }else{
             const emailExists = await User.findEmail(user.email);
             const userExists = await User.findUsername(user.username);
 
@@ -56,13 +42,9 @@ class UserController {
                     res.redirect('/login');
                 }
             }
-
         }
+    } 
 
-
-
-        
-    }
 
     async login(req, res){
         const {username, password} = req.body;
@@ -86,8 +68,14 @@ class UserController {
             }
            
         }
-
     }
+
+    logout(req, res){
+        req.session.destroy();
+        res.redirect('/login');
+    }
+
+    
 
 }
 

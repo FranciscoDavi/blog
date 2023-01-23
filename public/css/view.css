@@ -1,0 +1,49 @@
+body{
+    background-color: gainsboro;
+}
+
+.main{
+    margin-left: 25rem;
+}
+
+.main-menu header, .main-content{
+    width: 80rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+.main-menu{
+    display: flex;
+    flex-direction: row;
+}
+.main-menu header span{
+    color: grey;
+}
+/*  */
+
+
+.main-content .post-info{
+    border-bottom: 2px solid grey;
+    padding: 1rem 0 1rem 0;
+}
+
+.main-content .post-info h2{
+    font-size: 2rem;
+}
+
+/*  */
+.main-content .post-body{
+    background-color: white;
+    padding: 1rem 0 1rem 0;
+    text-align: justify;
+    height: 65vh;
+}
+
+.main-content .post-body p{
+    font-size: 18px;
+}
+/*  */
+

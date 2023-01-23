@@ -1,0 +1,135 @@
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+body{
+    background-color: gainsboro;
+}
+
+/*  */
+
+.main{
+    margin:  0 5rem 5rem 25rem;
+    padding-top: 2rem;
+}
+
+.main-menu header{
+    width: 80rem;
+    margin-right: 2rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+.main-menu{
+    display: flex;
+    flex-direction: row;
+}
+.main-menu header span{
+    color: grey;
+}
+
+.btn-new{
+    width: 5rem;
+    border-radius: 20px;
+    padding: 1rem;
+    height: 3rem;
+    background-color: #F7964D;
+    text-align: center;
+    font-size: .8rem;
+}
+
+.btn-new span{
+    display: block;
+}
+
+.btn-new:hover{
+    cursor: pointer;
+}
+
+.btn-new a{
+    color: white;
+}
+
+
+
+/*  */
+.post-header{
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: 3rem;
+
+}
+
+.post-header .header-item{
+    width: 10rem;
+    background-color: white;
+    padding: .5rem;
+    border-radius: 10px;
+}
+
+.post-header .header-item:nth-child(1){
+    width: 20rem;
+}
+
+.post-item .header-item:nth-child(5){
+    width: 8rem;
+}
+
+
+
+.post{
+    width: 100%;
+    height: 5rem;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
+}
+
+.post-item{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 10rem;
+}
+
+.post-item:nth-child(1){
+    width: 20rem;
+}
+
+.post-item:nth-child(5){
+    width: 8rem;
+}
+
+.post-item button:hover{
+   cursor: pointer;
+}
+
+
+
+.post-item a{
+    margin-right: 15px;
+    color: black;
+}
+
+.post-item button{
+    background: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+
+}
+

@@ -5,8 +5,8 @@ class Post{
 
     async findAll(){
         try{
-            const result = await db.select('posts.id','posts.title', 'posts.body', 'users.username').table('posts')
-                                    .join('users', 'users.id', '=', 'posts.id_user');
+            const result = await db.select('posts.id','posts.title', 'posts.slug','posts.body', 'users.username').table('posts')
+                                    .join('users', 'users.id', '=', 'posts.id_user').orderBy('posts.id', 'desc');
                                         
             return result;
         }catch(err){
@@ -16,9 +16,9 @@ class Post{
     }
 
 
-    async findById(id){
+    async find(data){
         try{
-            const post = db.select('*').where({id}).table('posts');
+            const post = db.select('*').where(data).table('posts');
             return post;
         }catch(err){
             console.log(err);
@@ -28,7 +28,7 @@ class Post{
 
     async findPostsUser(id_user){
         try{
-            const posts = db.select('*').where({id_user}).table('posts');
+            const posts = db.select('*').where({id_user}).table('posts').orderBy('id', 'desc');
             return posts;
         }catch(err){
             console.log(err);

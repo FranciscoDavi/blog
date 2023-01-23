@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/partials/sidebar.css">
+    <link rel="stylesheet" href="/css/edit.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/sidebar.ejs') %>
+    <section class="main">
+        <div class="main-menu">
+            <header>
+                <span>Home - Novo</span>
+                <h1>Criar nova postagem</h1>
+            </header>
+        </div>
+        <section >
+            <div class="main-content">    
+                <form action="/new" method="POST">       
+                    <div class="mensage">
+                        <% if(msg.length > 0) { %>
+                            <span class="material-icons">error <span><%- msg %></span></span>
+                        <% }%>
+                    </div>  
+                    <label for="title">Titulo: </label>
+                    <input type="text" name="title" id="title">
+                    <label for="body">Categoria: </label>
+                    <select name="category">
+                        <option value="entretenimento">Entretenimento</option>
+                        <option value="musica">Musica</option>
+                        <option value="esporte">Esporte</option>
+                        <option value="cultura">Cultura</option>
+                    </select>
+                    <br>
+                    <textarea name="body" id="body"></textarea>
+                    <div>
+                        <button type="submit">Publicar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </section>
+
+</body>
+</html>

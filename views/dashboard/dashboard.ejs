@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/partials/sidebar.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <title>Dashboard</title>
+</head>
+<body>
+    <%- include('../partials/sidebar.ejs') %>
+    <section class="main">
+        <div class="main-menu">
+            <header>
+                <span>Home - Todos</span>
+                <h1>Seus posts</h1>
+            </header>
+            <a href="/new">
+                <div class="btn-new">
+                    <span class="material-icons">add_circle</span>
+                    <span>NOVO POST</span>
+                </div>
+            </a>
+        </div>
+        <div class="post-list"> 
+            <div class="post-header">
+                <div class="header-item">Titulo</div>
+                <div class="header-item">Categoria</div>
+                <div class="header-item">Lançamento</div>
+                <div class="header-item">Status</div>
+                <div class="header-item">Ações</div>
+            </div>
+            <% posts.forEach(post => { %>      
+            <div class="post">
+                <div class="post-item"><%- post.title %></div>
+                <div class="post-item"><%- post.category %></div>
+                <div class="post-item">22/01/2023</div>
+                <div class="post-item">Publicado</div>
+                <div class="post-item">
+                    <a href="/view/<%- post.id %>"class="material-icons">visibility</a>
+                    <a href="/edit/<%- post.id %>" class="material-icons">edit</a>
+                    <form action="/remove" method="POST" onsubmit="confirmDelete(event, this)">
+                        <input type="hidden" name="id" value="<%- post.id %>">
+                        <button type="submit" class="material-icons" >delete</button>
+                    </form>
+                </div>
+            </div>
+            <% })%>
+            
+        </div>
+
+
+    </section>
+    
+    <div>
+        <form action="/logout" method="post">
+            <input type="hidden" value="true">
+            <button type="submit">Sair</button>
+        </form>
+    </div>
+    <script>
+        function confirmDelete(event, form){
+            event.preventDefault();
+            let decision = confirm("Você quer deletar este post?");
+            if(decision){
+                form.submit();
+            }
+        }
+    </script>
+</body>
+</html>
