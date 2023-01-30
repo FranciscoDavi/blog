@@ -34,16 +34,18 @@
                     <option value="esporte">Esporte</option>
                     <option value="cultura">Cultura</option>
                 </select>
-                <br>
-                <textarea name="body" id="body"><%= post.body %></textarea>
+                <div class="editpost">
+                    <textarea name="body"><%= post.body %></textarea>
+                </div>
                 <div>
                     <button type="submit">Salvar alterações</button>
                 </div>
+
             </form>
             <% }) %>
         </div>
     </section>
-    
+    <%- include('../partials/text_editor.ejs') %>
     
 </body>
 </html>

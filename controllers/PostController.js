@@ -56,14 +56,12 @@ class PostController{
         const user = req.session.user;
         const post = await Post.find({id: id});
 
-
         if(post.length > 0){
             res.render('dashboard/edit', {user, post});
         }else{
             res.redirect('/dashboard');
         }
     }
-
 
     async edit(req, res){
         const {id, ...post} = req.body;
@@ -80,25 +78,21 @@ class PostController{
     
     async remove(req, res){
         const {id} = req.body;
-        /*
-        verifica se é dono do post
+        
         const id_user = req.session.user.id;
-        const post = await Post.findById(id);
+        const post = await Post.find({id:id});
         if(post[0].id_user != id_user){
             res.redirect('/dashboard');
-        }
-        */
-        const result  = await Post.delete(id);
-
-        if(result){
-            res.redirect('/dashboard');
         }else{
-            res.redirect('/dashboard');
+            const result  = await Post.delete(id);
+
+            if(result){
+                res.redirect('/dashboard');
+            }else{
+                res.redirect('/dashboard');
+            }
         }
-         
     }
-
-
 }
 
 module.exports = new PostController();

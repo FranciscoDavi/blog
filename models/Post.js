@@ -2,7 +2,6 @@ const db = require('../db/connection');
 
 class Post{
 
-
     async findAll(){
         try{
             const result = await db.select('posts.id','posts.title', 'posts.slug','posts.body', 'users.username').table('posts')
@@ -10,18 +9,15 @@ class Post{
                                         
             return result;
         }catch(err){
-            console.log(err);
             return [];
         }
     }
-
 
     async find(data){
         try{
             const post = db.select('*').where(data).table('posts');
             return post;
         }catch(err){
-            console.log(err);
             return undefined;
         }
     }
@@ -31,7 +27,6 @@ class Post{
             const posts = db.select('*').where({id_user}).table('posts').orderBy('id', 'desc');
             return posts;
         }catch(err){
-            console.log(err);
             return undefined;
         }
     }
@@ -42,7 +37,6 @@ class Post{
             return result;
 
         }catch(err){
-            console.log(err);
             return undefined;
         }
     }
@@ -52,7 +46,6 @@ class Post{
             const result = await db.update(post).where({id}).table('posts');
             return result;
         }catch(err){
-            console.log(err);
             return undefined;
         }
     }
@@ -62,7 +55,6 @@ class Post{
             await db.delete().where({id}).table('posts');
             return true;
         }catch(err){
-            console.log(err);
             return undefined;
         }
     }

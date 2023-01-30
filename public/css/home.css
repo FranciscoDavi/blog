@@ -1,126 +1,256 @@
 
 /*  */
 
-section{
-    min-height: 100vh;
-}
-
-.main-bg{
-    padding-top: 10rem;
-    background-color: #210d41;
-    background-image: linear-gradient(180deg, #210d41 0%, #a430a1 46%, #481850 100%);
-        
-}
-  
-
-.btn-login{
-    background-color: var(--text2-color);
-    color: white;
-    width: 5rem;
-    text-align: center;
-    border-radius: 5px;
-
-}
-
-.btn-register{
-    background-color: var(--text1-color);
-    color: white;
-    width: 5rem;
-    text-align: center;
-    border-radius: 5px;
-}
-
- .post-session{
-    background-color: #210d41;
-    background-image: linear-gradient(0deg, #210d41 0%, #a430a1 1%, #a430a1 20%, #481850 60%);
-} 
-
-/* POSTS */
 .container{
-    width: 96%;
+    width: 60%;
+    margin: 0 auto 0 auto;
+}
+/* Banner inicial */
+.banner{
+    padding-top: 5vh;
+    width:100%;
+    height:95vh;
+    background: url('/imgs/background.jpg') no-repeat;
+    background-size:cover;
+    
+}
+body{
+    background-color: var(--primary-color);
+}
+
+main{
+    padding-top: 5vh;  
+}
+
+header h2{
+    color: var(--text);
+    padding-left: .5rem;
+    font-size: 2rem;
+    border-left: .2rem solid var(--text);
+}
+
+/* Card dos posts */
+.card-post{
+    color: white;
+    background-color: var(--light);
+    display: flex;
+    height: 20vh;
+    padding: 1rem;
+    margin: 2rem 0 2rem 0;
+    box-shadow: 1px 1px 10px var(--secundary-color);
+    transition: 1.5s;
+
+}
+.card-post:hover{
+    background-color: #3e314f;
+    cursor: pointer;
+}
+.card-img{
+    height: 20vh;
+    width: 25vw;
+}
+
+.card-img img{
+    width: 100%;
+    height: 100%;
+}
+
+.card-info{
+    padding: 0 0 0 1rem;
+    width: 100%;
+    display: block;
+}
+
+.card-info div:nth-child(1){
+    height: 90%;
+}
+
+.card-info div:nth-child(2){
+    float: right;
+    height: auto;
+}
+
+/* Botão pra ver mais posts */
+.mais-posts{
+    display: flex;
+    padding: 1rem;
+}
+
+.mais-posts a{
     margin: 0 auto 0 auto;
 }
 
-.header-post{
+.mais-posts button{
+    width: 25vw;
+    height: 5vh;
     color: white;
-    margin-bottom: 1rem;
-    padding: 1rem 0 .5rem 0;
-    font-size: 22px;
-    border-bottom: 2px solid #E61F93;
+    font-size: 18px;
+    background-color: #1a889f;
+    border: none;
+}
+.mais-posts button:hover{
+    cursor: pointer;
+}
+/* Footer */
+footer{
+    color: white;
+    margin-top: 5vh;
+    width: 100%;
+    height: 30vh;
+    background-color: var(--secundary-color);
 }
 
-.posts{
-    display: grid;
-    grid-template-columns: auto;
-    gap: 1rem;
-    align-content: center;
+.footer-itens{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.post{
-    height: 22rem;
-    background-color: #210D41;
-    border-radius: 10px;
+.social-links{
+    text-align: left;
+    width: 60%;
+    margin: 2rem auto 0 auto;
 }
 
-.post:hover{
-    background-color: #2a1152;
+.social-links img{
+    padding: 1rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+.social-links a{
+    position: relative;
+    top: -30px;
+}
+
+.social-links:nth-child(3){
+    text-align: center;
+}
+
+/* modals */
+
+.modal {
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0, 0, 0, .4);
+  }
+
+  .modal-content{
+    background-color: var(--light);
+    color: white;
+    width:30rem;
+    height: 30rem;
+    margin: auto;
+    margin-top: 15rem;
+    padding: 1rem;
+    box-shadow: 1px 1px 10px var(--secundary-color);
+    animation-name: faded;
+    animation-duration: .2s;
+  }
+
+  @keyframes faded {
+    0%   {opacity: 0;}
+    25%  {opacity: .25;}
+    50%  {opacity: .5;}
+    75%  {opacity: .75;}
+    100% {opacity: 1;}
+  }
+
+  .modal-content h1{
+    margin: 3rem 0 3rem 0;
+    text-align: center;
+  }
+
+  .modal-content form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+  }
+
+  .modal-content form input{
+    background-color: var(--secundary-color);
+    border: 1px solid var(--secundary-color);
+    color: var(--text);
+    width: 60%;
+    height: 1rem;
+    padding: 1rem;
+    font-size: 18px;
+    margin: 1rem 0 1rem 0;
+  }
+
+  .modal-content form input:focus{
+    background: var(--secundary-color);
+    border: 1px solid var(--text);
+
+  }
+
+  .modal-content form button{
+    background-color: var(--btn-sucess);
+    color: var(--text);
+    border: none;
+    width: 50%;
+    height: 3rem;
+    font-size: 18px;
+    margin: 1rem 0 1rem 0;
+    text-align: center;
+    border:1px solid var(--btn-sucess);
+
+  }
+  .modal-content form button:hover{
+    border:1px solid var(--text);
+    cursor: pointer;
+  }
+
+  .modal-content a{
+    color: var(--text);
+  }
+  .modal-content a:hover{
+    color: var(--btn-sucess);
+  }
+
+    .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    }
+
+  .close:hover, .close:focus {
+    color: var(--text);
+    text-decoration: none;
     cursor: pointer;
 }
 
-.post-img{
-    height: 14rem;
-    max-height: 15rem;
+
+.modal-register{
+    overflow: auto;
+    width: 50rem;
+    height: 45rem;
+    margin-top: 10rem;
 }
 
-.post-img img{
-    width: 100%;
-    height: 100%;
-    border-radius: 10px 10px 0 0;
+.modal-register h1{
+    margin: 1.5rem 0 1.5rem 0;
 }
 
-.post-title{
-    padding: .5rem 1rem 1rem 1rem;
-    text-align: justify;
-    color: white;
+.modal-register form div{
+    display: flex;
 }
 
-.post-title h2{
-    font-size: 18px;
-    text-transform: uppercase;
+.modal-register form div input:first-child{
+    margin-right: .8rem;
 }
 
-.post-page{
-    width: 100%;
-    background-color: gainsboro;
-    justify-items: center;
+.modal-register form div:last-child{
+    position: absolute;
 }
 
 
-
-@media (min-width: 600px) {
-    .container{
-        width: 96%;
-    }
-    .posts{
-        grid-template-columns: auto auto;
-    }
-}
-
-@media (min-width: 1000px) {
-    .container{
-        width: 80%;
-    }
-    .posts{
-        grid-template-columns: auto auto auto;
-    }
-}
-
-@media (min-width: 1300px) {
-    .container{
-        width: 80%;
-    }
-    .posts{
-        grid-template-columns: auto auto auto auto;
-    }
-
-}

@@ -1,8 +1,10 @@
 /* Basic Styles */
 :root{
-    --primary-color: #210D41;
-    --text1-color: #F7964D;
-    --text2-color: #E61F93;
+    --primary-color: #1e1f34;
+    --secundary-color:#0d121d;
+    --light: #342943;
+    --text: #95f5ea;
+    --btn-sucess: #1a889f;
 }
 
 *{
@@ -15,6 +17,7 @@ a{
     text-decoration: none;
     color: black;
 }
+
 ul{
     list-style: none;
 }

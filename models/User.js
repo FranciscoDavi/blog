@@ -11,7 +11,6 @@ class User{
                 return undefined;
             }
         }catch(err){
-            console.log(err);
             return undefined;
         }
     }
@@ -25,7 +24,6 @@ class User{
                 return undefined;
             }
         }catch(err){
-            console.log(err);
             return undefined;
         }
     }
@@ -39,7 +37,6 @@ class User{
                 return undefined;
             }
         }catch(err){
-            console.log(err);
             return undefined;
         }
     }
@@ -50,10 +47,8 @@ class User{
             return result;
 
         }catch(err){
-            console.log(err);
             return undefined;
        }
-
     }
 
 }
