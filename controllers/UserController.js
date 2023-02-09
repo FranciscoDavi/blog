@@ -43,17 +43,22 @@ class UserController {
                 }
             }
         }
-    } 
+    }
+
+    async perfil(req , res){
+        
+    }
 
 
     async login(req, res){
         const {username, password} = req.body;
-
         const user = await User.findUser(username);
 
+        console.log(user);
+
         if(!user){
-            req.flash('msg', 'Usuário ou senha Invalidos!');
-            res.redirect('/login');
+           req.flash('msg', 'Usuário ou senha inválidos');
+           res.redirect('/login')
         }else{
             const correct = bcrypt.compareSync(password, user.password);
             if (correct){
@@ -61,10 +66,11 @@ class UserController {
                     id: user.id,
                     username: user.username,
                 }
+                req.flash('msg', 'Usuário logado');
                 res.redirect('/dashboard');
             }else{
-                req.flash('msg', 'Usuário ou senha Inválidos!');
-                res.redirect('/login');
+                req.flash('msg', 'Usuário ou senha inválidos');
+                res.redirect('/dashboard');
             }
            
         }
@@ -74,8 +80,6 @@ class UserController {
         req.session.destroy();
         res.redirect('/login');
     }
-
-    
 
 }
 

@@ -15,43 +15,6 @@
 </head>
 <body>
     <%- include('./partials/navbar.ejs') %>
-    <div id="modal-login" class="modal">       
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h1>Login</h1>     
-            <form action="/login" method="POST" class="login-form">
-                <input type="text" name="username" id="username" placeholder="Nome de Usuario">
-                <input type="password" name="password" id="password" placeholder="Senha">
-                <button type="submit">Entrar</button>         
-                <a href="#">Esqueci minha senha.</a>
-                <p>Não possui conta? <a href="/register">Registre-se.</a></p>
-            </form>       
-        </div>  
-    </div>
-
-    <div id="modal-register" class="modal">       
-        <div class="modal-content modal-register">
-            <span class="close">&times;</span>
-            <h1>Register</h1>
-            <form action="/register" method="POST" class="register-form">
-                <div>
-                    <input type="text" name="firstname" class="nameput" id="firstname" placeholder="Nome">
-                    <input type="text" name="lastname" class="nameput" id="lastname" placeholder="Sobrenome">
-                </div>
-                
-                <input type="text" name="username"  placeholder="Nome de Usuario">
-                <input type="email" name="email" id="email" placeholder="exemplo@email.com">
-                <input type="date" name="dat" id="dat">
-                <input type="password" name="password"  placeholder="Senha">
-                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirmar Senha">
-                <div>
-                    <input type="checkbox" value="true"><a>Li e Concordo com os termos e condições</a>
-                </div>
-                <button type="submit" class="register-button"> Entrar</button>
-            </form>
-        </div>  
-    </div>
-
     
     <div class="banner">
       
@@ -63,20 +26,22 @@
                 <h2>Postagens</h2>
             </header>
             <% posts.forEach(post => { %>
-            <div class="card-post">
-                <div class="card-img">
-                    <img src="imgs/banner-temp.png" alt="banner-temporario">
-                </div>
-                <div class="card-info">
-                    <div>
-                        <h2><%- post.title %> </h2>
-                        <p>Breve descrição do post</p>
+            <a href="/post/<%- post.slug %>">
+                <div class="card-post">
+                    <div class="card-img">
+                        <img src="imgs/banner-temp.png" alt="banner-temporario">
                     </div>
-                    <div>
-                        <span>26/10/2023</span>
+                    <div class="card-info">
+                        <div>
+                            <h2><%- post.title %> </h2>
+                            <p>Breve descrição do post</p>
+                        </div>
+                        <div>
+                            <span>26/10/2023</span>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
             <% }); %> 
         </main>
     </div> 
@@ -101,51 +66,6 @@
         </div>
     </footer>
     <script src="js/mobile-navbar.js"></script>
-    <script>
-        let modal_login = document.getElementById("modal-login");
-        let modal_register = document.getElementById("modal-register");
-
-        let btn_login = document.getElementById("btn-login");
-        let btn_register = document.getElementById("btn-register");
-
-        let span = document.querySelector(".close");
-
-        span.onclick = () => {
-            modal_login.style.display = "none";
-        }
-
-        openModal(modal_login, btn_login);
-
-        openModal(modal_register, btn_register);
-
-        function openModal(modal, btn){
-            btn.onclick = () => {
-                modal.style.display = "block";
-            }
-
-            window.onclick = (event) => {
-                if(event.target == modal){
-                    modal.style.display = "none";
-                }
-            }
-        }
-
-
-
-        // 
-
-        // btn.onclick = function(){
-        //     modal_login.style.display = "block";
-        // }
-
-        // 
-
-        // window.onclick = function(event){
-        //     if(event.target == modal){
-        //         modal_login.style.display = "none";
-        //     }
-        // }
-
-    </script>
+    
     </body>
 </html>

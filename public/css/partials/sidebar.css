@@ -7,7 +7,7 @@
     text-align: center;
     width: 20rem;
     height: 100vh;
-    background-color: white;
+    background-color: var(--primary-color);
     position: fixed;
 }
 
@@ -15,19 +15,13 @@
     font-size: 18px;
     height: 5rem;
     width: 20rem;
-    margin: 1rem;
-    color: black;
+    color: var(--text);
     transition: .6s;
 }
 
-
-.sidebar-list li:hover{
-    background-color: rgb(211, 211, 211);
-}
 span{
-    color: black;
+    color: var(--text);
 }
-
 
 .icon-list{
     position: relative;
@@ -41,9 +35,9 @@ span{
 }
 
 .sidebar-header .sidebar-bn{
-    background-color: grey;
+    background-color: var(--secundary-color);
     height: 15vh;
-    width: 95.5%;
+    width: 100%;
 }
 
 .sidebar-header .sidebar-ft{

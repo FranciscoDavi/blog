@@ -4,7 +4,9 @@
     --secundary-color:#0d121d;
     --light: #342943;
     --text: #95f5ea;
-    --btn-sucess: #1a889f;
+    --green: #1a889f;
+    --red: #f45651;
+    --link: #5c94cb;
 }
 
 *{
@@ -48,6 +50,11 @@ ul{
     font-feature-settings: 'liga';
 }
 
+
+.container{
+    width: 60%;
+    margin: 0 auto 0 auto;
+}
 
 
 
